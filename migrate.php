@@ -7,6 +7,5 @@ foreach (glob("config/DB/migration/*.php") as $path) {
     $create->up();
     $class_name = null;
     $create = null;
-    // echo $class_name;
 }
 

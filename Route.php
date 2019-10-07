@@ -6,16 +6,14 @@
 // echo "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
 
-include_once HOME_DIR.'/controller/SiswaController.php';
-include_once HOME_DIR.'/controller/GuruController.php';
+include_once HOME_DIR.'/controller/TugasController.php';
 
 
-$route->add('/',function(){
-	echo 'Hey this is home';
-});
-$route->add('/siswa', 'SiswaController@index');
-$route->add('/siswa/tambah', 'SiswaController@create');
-$route->add('/redirect', 'SiswaController@showRedirect');
-$route->add('/guru', 'GuruController@index');
+// $route->add('/',function(){
+// 	echo 'Hey this is home';
+// });
+$route->add('/', 'TugasController@index');
+$route->add('/tugas/tambah', 'tugasController@create');
+$route->add('/tugas/showadd', 'tugasController@showTambah');
 
 
