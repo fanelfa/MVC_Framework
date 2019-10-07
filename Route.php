@@ -14,6 +14,7 @@ $route->add('/',function(){
 	echo 'Hey this is home';
 });
 $route->add('/siswa', 'SiswaController@index');
+$route->add('/siswa/tambah', 'SiswaController@create');
 $route->add('/redirect', 'SiswaController@showRedirect');
 $route->add('/guru', 'GuruController@index');
 

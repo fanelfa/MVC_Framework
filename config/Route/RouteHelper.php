@@ -12,18 +12,11 @@ class Route{
 	}
 
 	public function submit(){
-		$uriGetParam = isset($_GET['uri']) ? '/' . $_GET['uri'] : '/';
+		$uriGetParam = isset($_GET['uri']) ? '/' . rtrim($_GET['uri'],'/') : '/';
 
 		foreach ($this->_uri as $key => $value) {
 			if(preg_match("#^$value$#", $uriGetParam)){
 				$this->_found += 1;
-				// echo 'match!';
-				// $useMethod = $this->_method[$key];
-				// if(is_string($useMethod)){
-				// 	new $useMethod();
-				// }else{
-				// 	call_user_func($useMethod);
-				// }
 
 				$useMethod = $this->_method[$key];
 				if(is_string($useMethod)){
@@ -31,11 +24,22 @@ class Route{
 					$controller = $arr_method[0];
 					$method = $arr_method[1];
 					$object = new $controller();
-					if(sizeof($_GET)==1){
-						$object->$method();
-					}else{
-						unset($_GET['uri']);
+					unset($_GET['uri']);
+					if(isset($_POST)&&isset($_GET)){
+						$data = array_merge($_POST, is_null($_GET)?array():$_GET);
+						$object->$method($data);
+						$_POST = null;
+						$_GET = null;
+					}elseif(isset($_POST) && !isset($_GET)){
+						$object->$method($_POST);
+						$_POST = null;
+						$_GET = null;
+					}elseif(isset($_GET) && !isset($_POST)){
 						$object->$method($_GET);
+						$_POST = null;
+						$_GET = null;
+					}else{
+						$object->$method();
 					}
 				}else{
 					call_user_func($useMethod);

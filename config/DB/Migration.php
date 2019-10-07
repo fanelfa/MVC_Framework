@@ -15,7 +15,7 @@ abstract class Migration{
 		     // use exec() because no results are returned
 		     $db->exec($sql);
 
-		     echo "Table ".$nama_tabel." created successfully";
+		     echo "Table ".$nama_tabel." created successfully\n";
 
 		     $database->closeConnection();
 		}

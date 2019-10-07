@@ -96,7 +96,7 @@ class Model{
 		// }
 
 		// return $data;
-		return $this->hasil->fetchAll();
+		return $this->hasil->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	private function pisahkan($data_assoc_array){

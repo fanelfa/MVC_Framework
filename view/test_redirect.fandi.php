@@ -1,6 +1,3 @@
-<?php 
-session_start();
-?>
 
 <b>Ini redirect view broo...</b>
 <br/>
@@ -12,4 +9,8 @@ foreach ($data as $key=>$value) {
 ?>
 
 
-<?php session_destroy(); ?>
+<?php 
+if(isset($_SESSION)){
+	session_destroy(); 
+}
+?>

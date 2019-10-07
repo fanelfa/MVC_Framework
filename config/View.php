@@ -1,5 +1,8 @@
 <?php
 class View{
+	public static function url($_url){
+		echo ltrim($_url,'/');
+	}
 	public static function render($nama_file,$data=''){
 		include $nama_file.".fandi.php";
 	}

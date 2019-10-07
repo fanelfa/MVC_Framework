@@ -14,13 +14,19 @@ class DBTemplate{
 		return $this;
 	}
 
-	public function primary($nama_field){
+	public function setPrimary($nama_field){
 		$this->sql_hasil .= ", PRIMARY KEY (".$nama_field.")";
 		$this->primary_key=true;
 	}
 
-	public function serial(){
-		$this->sql_hasil .= ' serial ';
+	public function primary(){
+		$this->sql_hasil .= ' PRIMARY KEY ';
+		$this->primary_key=true;
+		return $this;
+	}
+
+	public function serial($nama_field){
+		$this->sql_hasil .= ($this->sql_hasil==''?'':', ').$nama_field.' SERIAL ';
 		return $this;
 	}
 

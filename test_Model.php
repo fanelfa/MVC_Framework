@@ -1,19 +1,19 @@
 <?php
 
-// include_once 'Model.php';
+include_once 'config/DB/Model.php';
 
 // $m = new Model();
 
 // echo $m->pisahkan();
 
-include_once 'Model_Siswa.php';
+// include_once 'Model_Siswa.php';
 
 // $data = [
 // 'id'=>6,
 // 'nama'=>'Tukiman Jukino'
 // ];
 
-$s = new Model_Siswa();
+// $s = new Model_Siswa();
 // print_r($s->create($data));
 
 // print_r($s->readAll()->get());
@@ -25,4 +25,5 @@ $s = new Model_Siswa();
 // ];
 
 // print_r($s->update($data,'id=3'));
-print_r($s->delete('id=5'));
+// print_r($s->delete('id=5'));
+
