@@ -1,27 +1,15 @@
 <?php
 
-// print_r(PDO::getAvailableDrivers());
-// $url = parse_url($_SERVER['REQUEST_URI']);
-// echo $url['path'];
+// define direktori utama
+$app_folder = str_replace('index.php','',$_SERVER['SCRIPT_FILENAME']);
+define("HOME_DIR", $app_folder);
 
-// echo "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-
-
-include_once 'Route.php';
-include_once 'controller/SiswaController.php';
-include_once 'controller/GuruController.php';
-
+// routing aplikasi
+include_once HOME_DIR.'\config\Route\RouteHelper.php';
 $route = new Route();
 
-$route->add('/',function(){
-	echo 'Hey this is home';
-});
-$route->add('/siswa', 'SiswaController@index');
-$route->add('/guru', 'GuruController');
+include('Route.php');
 
 $route->submit();
 
-
-// echo '<pre/>';
-// print_r($route);
-
+// print_r(HOME_DIR);

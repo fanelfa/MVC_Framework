@@ -6,6 +6,7 @@
 // $data = $_SESSION;
 foreach ($data as $key=>$value) {
 	echo $key.") ".$value['nama']." ";
+	echo '<br/>';
 }
 ?>
 

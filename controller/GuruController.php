@@ -6,7 +6,11 @@ class GuruController{
 
 
 	public function __construct(){
-		echo 'ini guru';
-		echo 'Root : '.$_SERVER['DOCUMENT_ROOT'];
+		// echo 'ini guru';
+		// echo 'Root : '.$_SERVER['DOCUMENT_ROOT'];
+	}
+
+	public function index(){
+		echo 'ini index Guru';
 	}
 }

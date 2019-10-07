@@ -1,45 +1,20 @@
 <?php
 
-class Route{
+// $url = parse_url($_SERVER['REQUEST_URI']);
+// echo $url['path'];
 
-	private $_uri = array();
-	private $_method = array();
+// echo "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
-	public function add($uri, $method = null){
-		$this->_uri[] = '/' . trim($uri,'/');
-		$this->_method[] = $method;
-	}
 
-	public function submit(){
-		$uriGetParam = isset($_GET['uri']) ? '/' . $_GET['uri'] : '/';
+include_once HOME_DIR.'/controller/SiswaController.php';
+include_once HOME_DIR.'/controller/GuruController.php';
 
-		foreach ($this->_uri as $key => $value) {
-			if(preg_match("#^$value$#", $uriGetParam)){
-				// echo 'match!';
-				// $useMethod = $this->_method[$key];
-				// if(is_string($useMethod)){
-				// 	new $useMethod();
-				// }else{
-				// 	call_user_func($useMethod);
-				// }
 
-				$useMethod = $this->_method[$key];
-				if(is_string($useMethod)){
-					$arr_method = explode('@', $useMethod);
-					$controller = $arr_method[0];
-					$method = $arr_method[1];
-					$object = new $controller();
-					if(sizeof($_GET)==1){
-						$object->$method();
-					}else{
-						unset($_GET['uri']);
-						$object->$method($_GET);
-					}
-				}else{
-					call_user_func($useMethod);
-				}
-			}
-		}
-	}
+$route->add('/',function(){
+	echo 'Hey this is home';
+});
+$route->add('/siswa', 'SiswaController@index');
+$route->add('/redirect', 'SiswaController@showRedirect');
+$route->add('/guru', 'GuruController@index');
 
-}
+

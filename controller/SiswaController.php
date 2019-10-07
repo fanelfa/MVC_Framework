@@ -1,7 +1,7 @@
 <?php
 
-include __DIR__.'\..\View.php';
-include __DIR__.'\..\model\Siswa.php';
+include HOME_DIR.'\config\View.php';
+include HOME_DIR.'\model\Siswa.php';
 
 class SiswaController{
 
@@ -17,8 +17,18 @@ class SiswaController{
 		if($request==null){
 			$data = $this->siswa->readAll()->get();
 			return View::render('view/view_Hello',$data);
+			// return View::redirect('redirect',$data);
 		}else{
 			print_r($request);
 		}
+	}
+
+	public function showRedirect(){
+		return View::render('view/test_redirect');
+	}
+
+	public function create($request){
+		$this->siswa->create($request);
+		echo 'berhasil input';
 	}
 }
