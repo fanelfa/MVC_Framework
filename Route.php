@@ -13,7 +13,8 @@ include_once HOME_DIR.'/controller/TugasController.php';
 // 	echo 'Hey this is home';
 // });
 $route->add('/', 'TugasController@index');
-$route->add('/tugas/tambah', 'tugasController@create');
-$route->add('/tugas/showadd', 'tugasController@showTambah');
+$route->add('/tugas/tambah', 'TugasController@create');
+$route->add('/tugas/showadd/', 'TugasController@showTambah');
+$route->add('/tugas/edit/[id]', 'TugasController@edit');
 
 

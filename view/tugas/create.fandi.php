@@ -6,9 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" type="text/css" href="../view/asset/bootstrap/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="view\asset\css\style.css"> -->
-    <link rel="stylesheet" type="text/css" href="../view/asset/css/style.css'">
+    <link rel="stylesheet" type="text/css" href="<?php self::asset('bootstrap/css/bootstrap.min.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?php self::asset('css/style.css') ?>">
 
 
     
@@ -129,10 +128,16 @@
 </div>
 </div>
 
-  <script type="text/javascript" src="../view/asset/jquery.min.js"></script>
-  <script type="text/javascript" src="../view/asset/jquery_validate/jquery.validate.js"></script>
-  <script type="text/javascript" src="../view/asset/jquery_validate/additional_methods.min.js"></script>
-  <script type="text/javascript" src="../view/asset/cek_data_tugas.js"></script>
+  <script type="text/javascript" src="<?php self::asset('jquery.min.js') ?>"></script>
+  <script type="text/javascript" src="<?php self::asset('jquery_validate/jquery.validate.js') ?>"></script>
+  <script type="text/javascript" src="<?php self::asset('jquery_validate/additional_methods.min.js') ?>"></script>
+  <script type="text/javascript" src="<?php self::asset('cek_data_tugas.js') ?>"></script>
 </body>
 
 </html>
+
+<?php 
+if(isset($_SESSION)){
+  session_destroy(); 
+}
+?>

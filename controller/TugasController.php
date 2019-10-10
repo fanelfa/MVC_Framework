@@ -24,10 +24,14 @@ class TugasController{
 		unset($request['submit']);
 		$this->tugas->create($request);
 		$data = $this->tugas->readAll()->get();
-		return View::render('view/tugas/index',$data);
+		return View::redirect('/',$data);
 	}
 
 	public function showTambah(){
 		return View::render('view/tugas/create');
+	}
+
+	public function edit($request){
+		echo $request['id'];
 	}
 }

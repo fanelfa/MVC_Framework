@@ -5,7 +5,7 @@ class View{
 	}
 
 	public static function asset($_path){
-		echo HOME_HREF.'view/asset/'.ltrim($_path,'/');
+		echo HOME_URL.'view/asset/'.ltrim($_path,'/');
 	}
 
 	public static function render($nama_file,$data=''){
@@ -17,8 +17,9 @@ class View{
 
 		$_SESSION['data']=$data;	
 
-		header("Location:".trim($url,'/'));
-		exit;
+		// header("Location:".trim($url,'/'));
+		header("Location:".HOME_URL.ltrim(rtrim($url,'/'),'/'));
+		die();
 	}
 
 }

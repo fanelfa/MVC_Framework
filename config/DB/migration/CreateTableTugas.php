@@ -15,8 +15,6 @@ class CreateTableTugas extends Migration{
 		$table->string('jenis')->notnull();
 		$table->string('deskripsi')->notnull();
 
-		// echo $table->save();
-
 		$this->create_table('tugas', $table->save());
 	}
 }
