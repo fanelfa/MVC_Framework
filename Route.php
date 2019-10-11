@@ -16,5 +16,6 @@ $route->add('/', 'TugasController@index');
 $route->add('/tugas/tambah', 'TugasController@create');
 $route->add('/tugas/showadd/', 'TugasController@showTambah');
 $route->add('/tugas/edit/[id]', 'TugasController@edit');
+$route->add('/tugas/{id}', 'TugasController@edit');
 
 

@@ -32,37 +32,41 @@ class Route{
 		$array_hasil = array();
 
 		foreach ($url_route as $key => $value) {
-			$kecocokan_url = 0;
-			$variabel_beda = '';
-			$value_beda = '';
-			$hitung_kata = 0;
+			//cek apakah id berupa angka dan huruf saja
+			if(preg_match('(\[[a-zA-Z0-9]*\])', $value)){
+				$kecocokan_url = 0;
+				$variabel_beda = '';
+				$value_beda = '';
+				$hitung_kata = 0;
 
-			$url_simpan = explode('/', trim($value,'/'));
+				$url_simpan = explode('/', trim($value,'/'));
 
-			$hitung_kata = sizeof($url_simpan);
+				$hitung_kata = sizeof($url_simpan);
 
-			if(sizeof($url_test_baru)==$hitung_kata){
-				foreach ($url_simpan as $k => $v) {
-					if($v==$url_test_baru[$k]){
-						$kecocokan_url += 1;
-					}else{
-						$variabel_beda = trim(trim($v,']'),'[');
-						$value_beda = $url_test_baru[$k];
+				if(sizeof($url_test_baru)==$hitung_kata){
+					foreach ($url_simpan as $k => $v) {
+						if($v==$url_test_baru[$k]){
+							$kecocokan_url += 1;
+						}else{
+							$variabel_beda = trim(trim($v,']'),'[');
+							$value_beda = $url_test_baru[$k];
+						}				
+					}
+				}			
+
+				if($kecocokan_url==($hitung_kata-1) && $kecocokan_url!=0){
+					if(preg_match('(^[a-zA-Z0-9]*$)', $value_beda)){
+						$array_hasil = [
+							'variabel' => $variabel_beda,
+							'value' => $value_beda
+						];
+
+						$this->_found += 1;
+						$this->implement_method($key, $array_hasil);
 					}				
 				}
-			}			
-
-			if($kecocokan_url==($hitung_kata-1) && $kecocokan_url!=0){
-				$array_hasil = [
-					'variabel' => $variabel_beda,
-					'value' => $value_beda
-				];
-
-				$this->_found += 1;
-				$this->implement_method($key, $array_hasil);
 			}
 		}
-
 		// return $array_hasil;
 	}
 

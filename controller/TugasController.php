@@ -32,6 +32,6 @@ class TugasController{
 	}
 
 	public function edit($request){
-		echo $request['id'];
+		echo '<H1>'.$request['id'].'</H1>';
 	}
 }
