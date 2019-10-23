@@ -33,5 +33,11 @@ class TugasController{
 
 	public function edit($request){
 		echo '<H1>'.$request['id'].'</H1>';
+		echo '<H4>'.$request['time'].'</H4>';
+		// echo urlencode('http://localhost/MVC_Framework/tugas/edit/3/lima%20jam');
+	}
+
+	public function edit2($request){
+		echo '<H1>'.$request['id'].'</H1><br/>';
 	}
 }
