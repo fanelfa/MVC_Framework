@@ -17,3 +17,6 @@ View
 
 Routing
 - lihat contoh routing dalam file Route.php
+
+Konfigurasi DB
+- lihat contoh di dbconfig.ini
