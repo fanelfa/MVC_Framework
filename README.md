@@ -10,7 +10,7 @@ Migration
 
 Controller
 1. buat file controller dalam folder controller/ pastikan classnya sama dengan nama file
-2. lihat contoh dalam folder controller/
+2. lihat contoh di controller/TugasController.php
 
 View
 - langsung lihat contohnya saja dalam folder view/
