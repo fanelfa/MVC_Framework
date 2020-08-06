@@ -13,7 +13,7 @@ Controller
 2. lihat contoh dalam folder controller/
 
 View
-langsung lihat contohnya saja dalam folder view/
+- langsung lihat contohnya saja dalam folder view/
 
 Routing
-lihat contoh routing dalam file Route.php
+- lihat contoh routing dalam file Route.php
