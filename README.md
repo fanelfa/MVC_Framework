@@ -3,6 +3,8 @@
 ini adalah framework simple yang sempat saya buat untuk tugas kuliah
 targetnya adalah mirip dengan framework laravel
 
+tested menggunakan web server laragon
+
 Migration
 1. buat file tabel di config/DB/migration/ (lihat contoh dalam folder), pastikan nama file sama dengan nama class
 2. kembali ke root folder buka terminal dan jalankan php migrate.php
