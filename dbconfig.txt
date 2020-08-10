@@ -2,7 +2,7 @@
 	"DBMS"		: "pgsql",
 	"HOST"		: "localhost",
 	"PORT"		: "5432",
-	"DB_NAME"	: "sekolah",
+	"DB_NAME"	: "namaDBKamu",
 	"USER_NAME"	: "postgres",
-	"PASSWORD"	: "ngimpisial97",
+	"PASSWORD"	: "sandiDBKamu",
 }
